@@ -128,6 +128,7 @@ imagePicker.addEventListener("change", event => {
 
 function openCreatePostModal() {
   createPostArea.style.transform = 'translateY(0vh)';
+  captureButton.style.display = 'inline';
 
   initMedia();
   initLocation();
