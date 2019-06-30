@@ -1,6 +1,14 @@
 # PWA-with-mobile-device-featues
 A progressive web app with many mobile device features
 
+### Application Live at:
+[pwa-picnick.web.app](pwa-picnick.web.app)
+
+### How to run
+```
+npm install
+```
+
 ### How to run
 ```
 npm start
