@@ -21,8 +21,8 @@ locationButton.addEventListener('click', event => {
   event.preventDefault();
 
   navigator.geolocation.getCurrentPosition(position => {
-    locationButton.style.display = 'inline';
-    locationLoader.style.display = 'none';
+    locationButton.style.display = 'none';
+    locationLoader.style.display = 'block';
     fetchedLocation = {
       lat: position.coords.latitude,
       lng: position.coords.longitude
@@ -40,6 +40,7 @@ locationButton.addEventListener('click', event => {
           address += ", " + loc.osmtags.name;
           locationInput.value = address;
           locationInput.parentElement.classList.add('is-focused');
+          locationLoader.style.display = 'none';
         }
         console.log(loc);
       })
@@ -160,6 +161,9 @@ function closeCreatePostModal() {
   canvasElement.style.display = 'none';
   locationButton.style.display = 'inline-block';
   locationLoader.style.display = 'none';
+
+  titleInput.value = "";
+  locationInput.value = "";
 
   if (videoPlayer && videoPlayer.srcObject) {
     videoPlayer.srcObject.getVideoTracks().forEach(track => track.stop());
