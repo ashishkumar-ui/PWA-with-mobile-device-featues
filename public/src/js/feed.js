@@ -18,11 +18,11 @@ var fetchedLocation;
 
 locationButton.addEventListener('click', event => {
   locationButton.style.display = 'none';
+  locationLoader.style.display = 'block';
+
   event.preventDefault();
 
   navigator.geolocation.getCurrentPosition(position => {
-    locationButton.style.display = 'none';
-    locationLoader.style.display = 'block';
     fetchedLocation = {
       lat: position.coords.latitude,
       lng: position.coords.longitude
@@ -182,7 +182,7 @@ function createCards(data) {
 
   for (let i = 0; i < data.length; i++) {
     $cards += `<div class="shared-moment-card mdl-card mdl-shadow--2dp">      
-      <div class="mdl-card__body card-body" style="background-image: url(${data[i].picture})">
+      <div class="mdl-card__body card-body">
         <img src="${data[i].picture}" />        
       </div>
       <div class="mdl-card__supporting-text mdl-typography--text-center">${data[i].title} (${data[i].location})</div>
