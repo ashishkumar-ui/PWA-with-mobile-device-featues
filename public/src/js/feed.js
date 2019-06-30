@@ -12,6 +12,62 @@ var imagePicker = document.querySelector("#image-picker");
 var imagePickerArea = document.querySelector("#pick-image");
 var picture;
 
+var locationButton = document.querySelector('#location-btn');
+var locationLoader = document.querySelector("#location-loader");
+var fetchedLocation;
+
+locationButton.addEventListener('click', event => {
+  locationButton.style.display = 'none';
+  event.preventDefault();
+
+  navigator.geolocation.getCurrentPosition(position => {
+    locationButton.style.display = 'inline';
+    locationLoader.style.display = 'none';
+    fetchedLocation = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    };
+    console.log(position);
+
+    fetch(`https://geocode.xyz/${fetchedLocation.lat},${fetchedLocation.lng}?json=1&auth=180947445731522388161x2832`)
+      .then(response => {
+        return response.json();
+      })
+      .then(loc => {
+        var address = loc.city;
+
+        if (loc.osmtags && loc.osmtags.name) {
+          address += ", " + loc.osmtags.name;
+          locationInput.value = address;
+          locationInput.parentElement.classList.add('is-focused');
+        }
+        console.log(loc);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+
+
+    //locationInput.value = fetchedLocation.lat + ", " + fetchedLocation.lng;
+    //locationInput.parentElement.classList.add('is-focused');
+
+  }, err => {
+    console.log("Error getting location", err);
+    locationButton.style.display = 'inline';
+    locationLoader.style.display = 'none';
+    fetchedLocation = { lat: null, lng: null };
+    alert("Could not fetch location, pleae enter manually!");
+  }, { timeout: 15000 });
+
+  return;
+});
+
+function initLocation() {
+  if (!('geolocation' in navigator)) {
+    locationButton.style.display = 'none';
+  }
+}
+
 function initMedia() {
   // Checks Camera/Mic access API in browser
   if (!('mediaDevices' in navigator)) {
@@ -58,15 +114,23 @@ captureButton.addEventListener('click', event => {
   var imageHeight = videoPlayer.videoHeight / (videoPlayer.videoWidth / canvasElement.width);
 
   canvasContext.drawImage(videoPlayer, 0, 0, imageWidth, imageHeight);
-  videoPlayer.srcObject.getVideoTracks().forEach(track => track.stop());
+
+  if (videoPlayer && videoPlayer.srcObject) {
+    videoPlayer.srcObject.getVideoTracks().forEach(track => track.stop());
+  }
 
   picture = dataURItoBlob(canvasElement.toDataURL())
+});
+
+imagePicker.addEventListener("change", event => {
+  picture = event.target.files[0];
 });
 
 function openCreatePostModal() {
   createPostArea.style.transform = 'translateY(0vh)';
 
   initMedia();
+  initLocation();
 
   if (defferedPrompt) {
     defferedPrompt.prompt(); //showing Add to Home Popup
@@ -93,6 +157,12 @@ function closeCreatePostModal() {
   imagePickerArea.style.display = 'none';
   videoPlayer.style.display = 'none';
   canvasElement.style.display = 'none';
+  locationButton.style.display = 'inline-block';
+  locationLoader.style.display = 'none';
+
+  if (videoPlayer && videoPlayer.srcObject) {
+    videoPlayer.srcObject.getVideoTracks().forEach(track => track.stop());
+  }
 }
 
 shareImageButton.addEventListener('click', openCreatePostModal);

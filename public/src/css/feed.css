@@ -20,7 +20,8 @@
   margin: auto;
 }
 
-#pick-image {
+#pick-image,
+#location-loader {
   display: none;
 }
 
