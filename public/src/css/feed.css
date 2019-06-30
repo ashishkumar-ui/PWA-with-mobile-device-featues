@@ -52,18 +52,6 @@
   margin: 10px auto;
 }
 
-.shared-moment-card .mdl-card__title {
-  height: 250px;
-}
-
-@media (min-width: 700px) {
-  .shared-moment-card .mdl-card__title {
-    height: 300px;
-  }
-}
-
-@media (min-width: 1000px) {
-  .shared-moment-card .mdl-card__title {
-    height: 380px;
-  }
+.shared-moment-card img {
+  width: 100%;
 }

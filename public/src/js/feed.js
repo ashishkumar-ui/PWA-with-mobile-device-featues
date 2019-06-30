@@ -181,11 +181,11 @@ function createCards(data) {
   sharedMoments.innerHTML = "";
 
   for (let i = 0; i < data.length; i++) {
-    $cards += `<div class="shared-moment-card mdl-card mdl-shadow--2dp">
-      <div class="mdl-card__title card-title" style="background-image: url(${data[i].picture})">
-        <h2 class="mdl-card__title-text" style="color: white">${data[i].title}</h2>
+    $cards += `<div class="shared-moment-card mdl-card mdl-shadow--2dp">      
+      <div class="mdl-card__body card-body" style="background-image: url(${data[i].picture})">
+        <img src="${data[i].picture}" />        
       </div>
-      <div class="mdl-card__supporting-text mdl-typography--text-center">${data[i].location}</div>
+      <div class="mdl-card__supporting-text mdl-typography--text-center">${data[i].title} (${data[i].location})</div>
     </div>`;
   }
 
