@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "pwa-picnick",
+  "private_key_id": "6562441268bdac6d12cc6b9bcac6a7d717bbc3da",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCrj+SijDFUVbgw\nJnfFGaWywnvk7scsPVdCjkDQqTZFRS3uZsJN0ucS0jCMB7akuOLfeG4rZWmFopD2\nFQ5h5vMLU55p5Uv2/kwb2Lgm6qK0EHKm+j/Xbq0TrQqs9B0jhAlvvrYJyOgeJ2hX\nlWee17h8HFUZB+APynU1oqSC6So86DNxsrWAFO5eFnfKOsgEkt7ViVN7pPK3JzGa\nYj1mA0oBhr2lZebGM6/GdSOMolbe4nAlVaXbpJkrJSZCK0o2qv7KSvy/I/OBdyJp\n60FkaG9dVB7Uq9AETLYSKIKxfYaLTijH1VtcoezXywLpYvKQfzRjSfD4a6FW0AI9\n8amAftcvAgMBAAECggEAAKs5cXbJdHI3GxzzR5XvgvBmKkDSDvaYQf6q+wVF3GRG\nJxFIfaQuWXDvVoRrLl44KDXgfBPTov08wnDXkwMi/G7RhckqkCZypoMkSKaOhtQv\nlj4QhKb+Tr7UdVMoT+yiWsisDgK2APQXYIwJEOH3aqhznnrc4ULhTRm6uXXuP7mI\nYUV4sDch7CZLTg5gApwKPtqzBcjVhcpxDtI8haKN1Z1+VaBEOHky6mJ8wKIlgztE\nWWc+6wBq3HNM4zM8hevd/2NMeQVpTe4OgMHEW6xxOW+TlxFiVy5UiwiZPe9YPndp\na/SSCY9a6XBdCOmDesE/HwBy9u/mHnykTRgqVoForQKBgQDoSNZgrAwUo8zc/Xq/\ncD+zs1Vyeeob3YKAyfWn7DbfZPmYn2s2hknhQakuFVc6zCdJRLAfAzbsU1qhXMOs\nQw/z2taGHRgfLaTT+BpPiAYRjNfosnBT62S9JFV4PP4TNQwUOYNifaVvaq/8FcnG\nAwAMU2TtRZog5Mgc/Vx/rKmPUwKBgQC9E/fs8ETUb2y4AaxtyuGXc2qb41BS97zj\npoxNdrdn7+Lcwz9551IfF65Df2kFpr2Ta1KLGzk1vhRTTHtus5cdt4ymaAyBUvVx\nMuxiI7kjUnApduxsAC/jhfrX0phR9eoFKKEiUlGvOrtduH87UCabihAh3wqOlldD\nMxb8ETTJNQKBgGEOzkTmnsWhC+DrKXcEeBmmPXXv6xppnDYkLTlVQjhmAMT9F9dY\nlVZCEWboE+LFm0TKJq1Osoxc5+m00S4Rd4D1V94CGios8EqByLyioaaDq1PX+4eV\nPCqsG+p50dBEwh9RSMzGo3HCqnYyxHSwnDyKPAnIo3ZLIjK6ywOuKctxAoGAPnhb\ngLA9vYZ3ADClXL0cXeKnRYwMHO13PivnzSw9Gp0acmAcF9XCvz0euXReKZzWo99g\nrU84TrZXltH9Mi0p74qWcOCNySi0qUru6NnusGnrXvfI00IYkG7S2v3cj6/VOxEa\nc/GIxYF9KFDt0JYBu4AZJme/4C5x9GTr4ip5K0UCgYANiPEkoxDRsD0U7qRyl3Ke\nDg1lhXnbFP8y1zsBxN2co203fi632n8p4Hjl3ptpgWukf5LYF4VCRURH+dcY++nh\ntj+H6dFJ/yOj2/M25kMkRX25yVBgkYPj+sbKdqnW10saL4n/gX6+v2YhG88PT4uf\nr5oZtWUdUg08Ic4MWFktVA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-ue7qv@pwa-picnick.iam.gserviceaccount.com",
+  "client_id": "113522185350959831678",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-ue7qv%40pwa-picnick.iam.gserviceaccount.com"
+}

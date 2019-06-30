@@ -1,0 +1,30 @@
+.text-center {
+  text-align: center;
+}
+
+.drawer-option {
+  padding: 16px;
+}
+
+.shared-moments {
+  padding: 0 20px;
+}
+
+.mdl-card {
+  margin: 20px auto;
+  max-width: 500px;
+  width: 100%;
+}
+
+.card-title {
+  background-image: url("/src/images/tour-img.jpg");
+  background-size: cover;
+  height: 180px;
+  text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.6);
+  box-shadow: inset 0 -38px 38px rgba(0, 0, 0, 0.3);
+  padding: 15px;
+}
+
+.enable-notifications {
+  display: none;
+}

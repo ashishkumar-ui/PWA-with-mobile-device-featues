@@ -1,0 +1,45 @@
+{
+    "name": "PicNick - Social Progressive Web App",
+    "short_name": "PicNick",
+    "icons": [
+        {
+            "src": "/src/images/icons/my-app-icon-48-48.png",
+            "type": "image/png",
+            "sizes": "48x48"
+        },
+        {
+            "src": "/src/images/icons/my-app-icon-72-72.png",
+            "type": "image/png",
+            "sizes": "72x72"
+        },
+        {
+            "src": "/src/images/icons/my-app-icon-96-96.png",
+            "type": "image/png",
+            "sizes": "96x96"
+        },
+        {
+            "src": "/src/images/icons/my-app-icon-144-144.png",
+            "type": "image/png",
+            "sizes": "144x144"
+        },
+        {
+            "src": "/src/images/icons/my-app-icon-192-192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/src/images/icons/my-app-icon-512-512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "start_url": "/index.html",
+    "scope": ".",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#e91e63",
+    "theme_color": "#e91e63",
+    "description": "A simple Progressive Web App",
+    "dir": "ltr",
+    "lang": "en-US"
+}

@@ -4,7 +4,7 @@
   "description": "A progressive web app with many mobile device features",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "http-server -c-1 -p 9091"
   },
   "repository": {
     "type": "git",
@@ -14,12 +14,17 @@
     "PWA",
     "Progressive",
     "Web",
-    "App"
+    "App",
+    "complete",
+    "tutorial"
   ],
   "author": "Ashish <ashishkumar.ui@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ashishkumar-ui/PWA-with-mobile-device-featues/issues"
   },
-  "homepage": "https://github.com/ashishkumar-ui/PWA-with-mobile-device-featues#readme"
+  "homepage": "https://github.com/ashishkumar-ui/PWA-with-mobile-device-featues#readme",
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  }
 }
