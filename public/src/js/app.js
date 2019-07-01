@@ -126,3 +126,11 @@ function configurePushSubscription() {
             console.log(err);
         });
 }
+
+//
+function updateOnlineStatus(event) {
+    document.body.className = event.type;
+};
+
+window.addEventListener('online', updateOnlineStatus);
+window.addEventListener('offline', updateOnlineStatus);

@@ -28,3 +28,7 @@
 .enable-notifications {
   display: none;
 }
+
+.offline {
+  filter: grayscale(100%);
+}

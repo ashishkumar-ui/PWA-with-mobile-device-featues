@@ -105,7 +105,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "src/css/app.css",
-    "revision": "11a283baa62cd33735a8543ae46d8884"
+    "revision": "a53c25993e1b1229b0500783f258e343"
   },
   {
     "url": "src/css/feed.css",
@@ -117,7 +117,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "src/js-min/app.js",
-    "revision": "3908008259143f09b35ba3d25df9a715"
+    "revision": "5e8b7eb02edf026399f000c42efbbffd"
   },
   {
     "url": "src/js-min/feed.js",
