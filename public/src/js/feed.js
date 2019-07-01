@@ -57,7 +57,7 @@ locationButton.addEventListener('click', event => {
     locationButton.style.display = 'inline';
     locationLoader.style.display = 'none';
     fetchedLocation = { lat: null, lng: null };
-    alert("Could not fetch location, pleae enter manually!");
+    alert("Could not fetch location, please enter manually!");
   }, { timeout: 15000 });
 
   return;

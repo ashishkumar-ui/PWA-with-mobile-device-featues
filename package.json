@@ -4,7 +4,9 @@
   "description": "A progressive web app with many mobile device features",
   "main": "index.js",
   "scripts": {
-    "start": "http-server -c-1 -p 9091"
+    "start": "http-server -c-1 -p 9091",
+    "generate-sw": "workbox generateSW workbox-config.js",
+    "build-workbox": "workbox injectManifest"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,7 @@
   },
   "homepage": "https://github.com/ashishkumar-ui/PWA-with-mobile-device-featues#readme",
   "devDependencies": {
-    "http-server": "^0.11.1"
+    "http-server": "^0.11.1",
+    "workbox-cli": "^4.3.1"
   }
 }
