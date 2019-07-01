@@ -8,6 +8,7 @@ module.exports = {
   "swDest": "public/sw.js",
   "globIgnores": [
     "help/**",
-    "src/images/app-icons-lib/**"
+    "src/images/app-icons-lib/**",
+    "src/js/*.js"
   ]
 };

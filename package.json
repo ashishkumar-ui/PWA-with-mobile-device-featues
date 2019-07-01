@@ -6,7 +6,9 @@
   "scripts": {
     "start": "http-server -c-1 -p 9091",
     "generate-sw": "workbox generateSW workbox-config.js",
-    "build-workbox": "workbox injectManifest"
+    "build-workbox": "workbox injectManifest",
+    "minify": "uglifyjs public/src/js/app.js -o public/src/js-min/app.js --compress --mangle && uglifyjs public/src/js/feed.js -o public/src/js-min/feed.js --compress --mangle && uglifyjs public/src/js/idb.js -o public/src/js-min/idb.js --compress --mangle && uglifyjs public/src/js/utility.js -o public/src/js-min/utility.js --compress --mangle",
+    "build": "npm run minify && npm run build-workbox"
   },
   "repository": {
     "type": "git",
@@ -28,6 +30,7 @@
   "homepage": "https://github.com/ashishkumar-ui/PWA-with-mobile-device-featues#readme",
   "devDependencies": {
     "http-server": "^0.11.1",
+    "uglify-js": "^3.6.0",
     "workbox-cli": "^4.3.1"
   }
 }

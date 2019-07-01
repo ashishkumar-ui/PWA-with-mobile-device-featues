@@ -14,6 +14,11 @@ npm install
 npm start
 ```
 
+### Build Service Worker with workbox
+```
+npm run build-workbox
+```
+
 # Useful Resources
 
 ### Web App Manifest in detail

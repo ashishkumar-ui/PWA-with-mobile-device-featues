@@ -93,7 +93,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "index.html",
-    "revision": "f61d9de51ec48ffbad5fe52642d9132c"
+    "revision": "ea8cd10756174d28dc9c1270d705d9ea"
   },
   {
     "url": "manifest.json",
@@ -102,10 +102,6 @@ workbox.precaching.precacheAndRoute([
   {
     "url": "offline.html",
     "revision": "f573a1e274c25246bc15bc0aec5c1456"
-  },
-  {
-    "url": "service-worker.js",
-    "revision": "dfe111376f8fa8590f46cf9805669680"
   },
   {
     "url": "src/css/app.css",
@@ -120,24 +116,24 @@ workbox.precaching.precacheAndRoute([
     "revision": "1c6d81b27c9d423bece9869b07a7bd73"
   },
   {
-    "url": "src/js/app.js",
-    "revision": "d0538a96820756d0dc2d95ddcfa5104a"
+    "url": "src/js-min/app.js",
+    "revision": "3908008259143f09b35ba3d25df9a715"
   },
   {
-    "url": "src/js/feed.js",
-    "revision": "cd27e711fca75949c3aa7c153e049aa7"
+    "url": "src/js-min/feed.js",
+    "revision": "e126d5612e4012cc66ab8c402c81e722"
   },
   {
-    "url": "src/js/idb.js",
-    "revision": "017ced36d82bea1e08b08393361e354d"
+    "url": "src/js-min/idb.js",
+    "revision": "ea82c8cec7e6574ed535bee7878216e0"
   },
   {
-    "url": "src/js/material.min.js",
+    "url": "src/js-min/material.min.js",
     "revision": "713af0c6ce93dbbce2f00bf0a98d0541"
   },
   {
-    "url": "src/js/utility.js",
-    "revision": "e4599607e33aaba483b962c42e4256f2"
+    "url": "src/js-min/utility.js",
+    "revision": "164dea319a303c8f5e5a3369c1289857"
   },
   {
     "url": "sw-base.js",
