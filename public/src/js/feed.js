@@ -178,7 +178,7 @@ function createCards(data) {
   var sharedMoments = document.querySelector("#shared-moments");
   var $cards = "";
 
-  // Empty Existing Cards
+  // Empty Existing Cards 
   sharedMoments.innerHTML = "";
 
   for (let i = 0; i < data.length; i++) {
