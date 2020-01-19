@@ -2,17 +2,17 @@
 if ("serviceWorker" in navigator) {
     navigator.serviceWorker
         .register("/sw.js")
-        .then((registration) => {
+        .then(function (registration) {
             console.info("Service Worker registered", registration.scope);
         })
-        .catch(err => {
+        .catch(function (err) {
             console.info("Service Worker could not be registered", err);
         });
 }
 
 // Unregistering Service Worker
 /* navigator.serviceWorker.getRegistrations().then(function (registrations) {
-    for (let registration of registrations) {
+    for (var registration of registrations) {
         registration.unregister()
     }
 }); */
@@ -20,7 +20,7 @@ if ("serviceWorker" in navigator) {
 // Customizing ADD TO HOME 
 var defferedPrompt; // this variable is being set to window scope so that this can be accessed via other JS files when required
 
-window.addEventListener("beforeinstallprompt", event => {
+window.addEventListener("beforeinstallprompt", function (event) {
     // Prevent Chrome to prompt ADD to HOME SCREEN pop up
     event.preventDefault();
 
@@ -32,8 +32,8 @@ window.addEventListener("beforeinstallprompt", event => {
 var notificationButtons = document.querySelectorAll('.enable-notifications');
 
 if ('Notification' in window) {
-    for (let i = 0; i < notificationButtons.length; i++) {
-        let button = notificationButtons[i];
+    for (var i = 0; i < notificationButtons.length; i++) {
+        var button = notificationButtons[i];
 
         button.style.display = 'inline-block';
         button.addEventListener('click', requestNotificationPermission)
@@ -41,7 +41,7 @@ if ('Notification' in window) {
 }
 
 function requestNotificationPermission(event) {
-    Notification.requestPermission(userChoice => {
+    Notification.requestPermission(function (userChoice) {
         if (userChoice !== 'granted') {
             console.log("Notification permission denied by user!");
         } else {
@@ -74,7 +74,7 @@ function displayConfirmNotification() {
 
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.ready
-            .then(swRegistration => {
+            .then(function (swRegistration) {
                 swRegistration.showNotification('[SW] Notification granted!', options)
             })
     }
@@ -88,25 +88,25 @@ function configurePushSubscription() {
     var registration;
 
     navigator.serviceWorker.ready
-        .then(swRegistration => {
+        .then(function (swRegistration) {
             registration = swRegistration;
             return swRegistration.pushManager.getSubscription();
         })
-        .then(subcription => {
-            if (subcription === null) {
-                // create a new subscription
-                let vapidPublicKey = 'BIzqU-Np3ERLPmlGGRHvWNigTK3c4ifoRCn59vzEmvgi2T3oBaYVn0gZK7uWE04ZK86DLIq_IXCQbQTUmfFoBRg';
-                let convertedVapidPublicKey = urlBase64ToUint8Array(vapidPublicKey);
+        .then(function (subcription) {
+            //if (subcription === null) {
+            // create a new subscription
+            var vapidPublicKey = 'BIzqU-Np3ERLPmlGGRHvWNigTK3c4ifoRCn59vzEmvgi2T3oBaYVn0gZK7uWE04ZK86DLIq_IXCQbQTUmfFoBRg';
+            var convertedVapidPublicKey = urlBase64ToUint8Array(vapidPublicKey);
 
-                return registration.pushManager.subscribe({
-                    userVisibleOnly: true,
-                    applicationServerKey: convertedVapidPublicKey
-                });
-            } else {
-                // we have a subscription
-            }
+            return registration.pushManager.subscribe({
+                userVisibleOnly: true,
+                applicationServerKey: convertedVapidPublicKey
+            });
+            //} else {
+            // we have a subscription
+            //}
         })
-        .then(newSubscription => {
+        .then(function (newSubscription) {
             console.log(newSubscription);
             return fetch('https://pwa-picnick.firebaseio.com/subscriptions.json', {
                 method: 'POST',
@@ -117,12 +117,12 @@ function configurePushSubscription() {
                 body: JSON.stringify(newSubscription)
             });
         })
-        .then(res => {
+        .then(function (res) {
             if (res.ok) {
                 displayConfirmNotification();
             }
         })
-        .catch(err => {
+        .catch(function (err) {
             console.log(err);
         });
 }

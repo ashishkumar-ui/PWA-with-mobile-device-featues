@@ -16,24 +16,24 @@ var locationButton = document.querySelector('#location-btn');
 var locationLoader = document.querySelector("#location-loader");
 var fetchedLocation;
 
-locationButton.addEventListener('click', event => {
+locationButton.addEventListener('click', function (event) {
   locationButton.style.display = 'none';
   locationLoader.style.display = 'block';
 
   event.preventDefault();
 
-  navigator.geolocation.getCurrentPosition(position => {
+  navigator.geolocation.getCurrentPosition(function (position) {
     fetchedLocation = {
       lat: position.coords.latitude,
       lng: position.coords.longitude
     };
     console.log(position);
 
-    fetch(`https://geocode.xyz/${fetchedLocation.lat},${fetchedLocation.lng}?json=1&auth=180947445731522388161x2832`)
-      .then(response => {
+    fetch('https://geocode.xyz/' + fetchedLocation.lat + ',' + fetchedLocation.lng + '}?json=1&auth=180947445731522388161x2832')
+      .then(function (response) {
         return response.json();
       })
-      .then(loc => {
+      .then(function (loc) {
         var address = loc.city;
 
         if (loc.osmtags && loc.osmtags.name) {
@@ -44,7 +44,7 @@ locationButton.addEventListener('click', event => {
         }
         console.log(loc);
       })
-      .catch(err => {
+      .catch(function (err) {
         console.log(err);
       })
 
@@ -52,7 +52,7 @@ locationButton.addEventListener('click', event => {
     //locationInput.value = fetchedLocation.lat + ", " + fetchedLocation.lng;
     //locationInput.parentElement.classList.add('is-focused');
 
-  }, err => {
+  }, function (err) {
     console.log("Error getting location", err);
     locationButton.style.display = 'inline';
     locationLoader.style.display = 'none';
@@ -83,7 +83,7 @@ function initMedia() {
         return Promise.reject(new Error('getUserMedia is not implemented'));
       }
 
-      return new Promise((resolve, reject) => {
+      return new Promise(function (resolve, reject) {
         getUserMedia.call(navigator, constraints, resolve, reject);
       })
     };
@@ -91,12 +91,12 @@ function initMedia() {
 
   //
   navigator.mediaDevices.getUserMedia({ video: true })
-    .then(stream => {
+    .then(function (stream) {
       videoPlayer.srcObject = stream;
       videoPlayer.style.display = 'block';
 
     })
-    .catch(err => {
+    .catch(function (err) {
       // Error me occur due to
       // - User denied the access to camera
       // - Devide does not have the camera
@@ -105,7 +105,7 @@ function initMedia() {
     })
 }
 
-captureButton.addEventListener('click', event => {
+captureButton.addEventListener('click', function (event) {
   canvasElement.style.display = 'block';
   captureButton.style.display = 'none';
   videoPlayer.style.display = 'none';
@@ -117,13 +117,15 @@ captureButton.addEventListener('click', event => {
   canvasContext.drawImage(videoPlayer, 0, 0, imageWidth, imageHeight);
 
   if (videoPlayer && videoPlayer.srcObject) {
-    videoPlayer.srcObject.getVideoTracks().forEach(track => track.stop());
+    videoPlayer.srcObject.getVideoTracks().forEach(function (track) {
+      track.stop();
+    });
   }
 
   picture = dataURItoBlob(canvasElement.toDataURL())
 });
 
-imagePicker.addEventListener("change", event => {
+imagePicker.addEventListener("change", function (event) {
   picture = event.target.files[0];
 });
 
@@ -138,7 +140,7 @@ function openCreatePostModal() {
     defferedPrompt.prompt(); //showing Add to Home Popup
 
     // Below code executes when user reacts to Add to Home Popup
-    defferedPrompt.userChoice.then(userChoice => {
+    defferedPrompt.userChoice.then(function (userChoice) {
       console.log(userChoice.outcome);
 
       // Track user choise
@@ -166,7 +168,9 @@ function closeCreatePostModal() {
   locationInput.value = "";
 
   if (videoPlayer && videoPlayer.srcObject) {
-    videoPlayer.srcObject.getVideoTracks().forEach(track => track.stop());
+    videoPlayer.srcObject.getVideoTracks().forEach(function (track) {
+      track.stop();
+    });
   }
 }
 
@@ -178,16 +182,19 @@ function createCards(data) {
   var sharedMoments = document.querySelector("#shared-moments");
   var $cards = "";
 
+  // reverse data to render latest first
+  data = data.reverse();
+
   // Empty Existing Cards 
   sharedMoments.innerHTML = "";
 
-  for (let i = 0; i < data.length; i++) {
-    $cards += `<div class="shared-moment-card mdl-card mdl-shadow--2dp">      
-      <div class="mdl-card__body card-body">
-        <img src="${data[i].picture}" />        
-      </div>
-      <div class="mdl-card__supporting-text mdl-typography--text-center">${data[i].title} (${data[i].location})</div>
-    </div>`;
+  for (var i = 0; i < data.length; i++) {
+    $cards += '<div class="shared-moment-card mdl-card mdl-shadow--2dp">' +
+      '<div class="mdl-card__body card-body">' +
+      '<img src="' + data[i].picture + '" />' +
+      '</div>' +
+      '<div class="mdl-card__supporting-text mdl-typography--text-center">' + data[i].title + ' (' + data[i].location + ')</div>' +
+      '</div>';
   }
 
   sharedMoments.innerHTML += $cards;
@@ -197,8 +204,8 @@ var postApiUrl = 'https://pwa-picnick.firebaseio.com/posts.json';
 var networkDataReceived = false;
 
 fetch(postApiUrl)
-  .then(response => { return response.json() })
-  .then(data => {
+  .then(function (response) { return response.json() })
+  .then(function (data) {
     console.log('From Network', data);
     var posts = [];
 
@@ -212,7 +219,7 @@ fetch(postApiUrl)
 
 if ('indexedDB' in window) {
   readAllData('posts')
-    .then(data => {
+    .then(function (data) {
       if (!networkDataReceived) {
         console.log('From indexDB', data);
         createCards(data);
@@ -220,7 +227,7 @@ if ('indexedDB' in window) {
     })
 }
 
-form.addEventListener("submit", event => {
+form.addEventListener("submit", function (event) {
   event.preventDefault();
 
   // Validation
@@ -242,18 +249,18 @@ form.addEventListener("submit", event => {
   // Register SyncManager
   if ('serviceWorker' in navigator && 'SyncManager' in window) {
     navigator.serviceWorker.ready
-      .then(sw => {
+      .then(function (sw) {
         // save data to indexedDB
         writeData('sync-posts', post)
-          .then(() => {
+          .then(function () {
             sw.sync.register('sync-new-post');
           })
-          .then(() => {
+          .then(function () {
             var snackbar = document.querySelector("#confirmation-toast");
             var data = { message: 'Your post is saved for syncing!' };
             snackbar.MaterialSnackbar.showSnackbar(data);
           })
-          .catch(err => {
+          .catch(function (err) {
             console.log(err);
           });
 
@@ -266,7 +273,7 @@ form.addEventListener("submit", event => {
 });
 
 function sendData(post) {
-  let postData = new FormData();
+  var postData = new FormData();
 
   postData.append('id', post.id);
   postData.append('title', post.title);
@@ -277,7 +284,7 @@ function sendData(post) {
     method: 'POST',
     body: postData//JSON.stringify(post)
   })
-    .then(res => {
+    .then(function (res) {
       console.log('Send data', res);
     })
 }

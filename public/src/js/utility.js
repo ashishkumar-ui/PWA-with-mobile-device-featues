@@ -1,5 +1,5 @@
 
-var dbPromise = idb.open('posts-store', 1, db => {
+var dbPromise = idb.open('posts-store', 1, function (db) {
     if (!db.objectStoreNames.contains('posts')) {
         db.createObjectStore('posts', { keyPath: 'id' });
     }
@@ -11,7 +11,7 @@ var dbPromise = idb.open('posts-store', 1, db => {
 
 function writeData(st, data) {
     return dbPromise
-        .then(db => {
+        .then(function (db) {
             var transaction = db.transaction(st, 'readwrite');
             var store = transaction.objectStore(st);
             store.put(data);
@@ -21,7 +21,7 @@ function writeData(st, data) {
 
 function readAllData(st) {
     return dbPromise
-        .then(db => {
+        .then(function (db) {
             var transaction = db.transaction(st, 'readonly');
             var store = transaction.objectStore(st);
             return store.getAll();
@@ -30,7 +30,7 @@ function readAllData(st) {
 
 function clearAllData(st) {
     return dbPromise
-        .then(db => {
+        .then(function (db) {
             var transaction = db.transaction(st, 'readwrite');
             var store = transaction.objectStore(st);
             store.clear();
@@ -40,7 +40,7 @@ function clearAllData(st) {
 
 function clearItemInData(st, id) {
     return dbPromise
-        .then(db => {
+        .then(function (db) {
             var transaction = db.transaction(st, 'readwrite');
             var store = transaction.objectStore(st);
             store.clear(id);
