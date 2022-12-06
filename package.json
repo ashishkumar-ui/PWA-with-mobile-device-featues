@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/ashishkumar-ui/PWA-with-mobile-device-featues#readme",
   "devDependencies": {
-    "http-server": "^0.11.1",
+    "http-server": "^0.11.2",
     "uglify-js": "^3.6.0",
     "workbox-cli": "^4.3.1"
   }
